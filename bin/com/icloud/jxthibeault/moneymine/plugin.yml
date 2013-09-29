@@ -1,0 +1,9 @@
+name: Moneymine
+main: com.icloud.jxthibeault.moneymine.moneymine
+version: alpha-1.0.0
+commands:
+  createjob:
+    description: Create a new job opening.
+    usage: /createjob <job name> <wage> <description>
+    permission: moneymine.createjob
+    permission-message: You don't have permission to create new jobs.
