@@ -20,12 +20,12 @@ public class FileSysManager {
 		creator.close();
 	}
 	
-	public void appendFile(String filepath){
+	public void deleteFile(String filepath){
 		File target = new File(filepath);
 		target.delete();
 	}
 	
-	public void writeFile(String filepath, String dataText){
+	public void appendFile(String filepath, String dataText){
 		FileWriter appender = null;
 		try {
 			appender = new FileWriter(filepath, true);
