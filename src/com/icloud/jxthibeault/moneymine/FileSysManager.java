@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 public class FileSysManager {
-	public void createFile(String filepath){
+	public static void createFile(String filepath){					//Class for creating a new file
 		PrintWriter creator = null;
 		try {
 			creator = new PrintWriter(filepath, "UTF-8");
@@ -20,12 +20,12 @@ public class FileSysManager {
 		creator.close();
 	}
 	
-	public void deleteFile(String filepath){
+	public static void deleteFile(String filepath){					//Class for deleting an existing file
 		File target = new File(filepath);
 		target.delete();
 	}
 	
-	public void appendFile(String filepath, String dataText){
+	public static void appendFile(String filepath, String dataText){	//Class for appending to an existing file
 		FileWriter appender = null;
 		try {
 			appender = new FileWriter(filepath, true);
