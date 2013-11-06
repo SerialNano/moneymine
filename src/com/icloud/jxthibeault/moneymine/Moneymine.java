@@ -12,13 +12,20 @@ import com.icloud.jxthibeault.moneymine.JobApManager;
 
 public final class Moneymine extends JavaPlugin{
 	
+	File userTopDirectory = new File("plugins/moneymine");
 	File userDirectory = new File("plugins/moneymine/users");
 	
 	public void onEnable(){
+		boolean userTopDirExists = userTopDirectory.exists();
+		if(userTopDirExists == false){
+			userTopDirectory.mkdir();
+		}
+		
 		boolean userDirExists = userDirectory.exists();
 		if(userDirExists == false){
 			userDirectory.mkdir();
 		}
+		
 		new LoginListener(this);
 	}
 	
