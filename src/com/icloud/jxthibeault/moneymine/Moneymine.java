@@ -2,7 +2,11 @@ package com.icloud.jxthibeault.moneymine;
 
 import java.io.File;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import com.icloud.jxthibeault.moneymine.JobApManager;
 
 public final class Moneymine extends JavaPlugin{
 	
@@ -20,8 +24,26 @@ public final class Moneymine extends JavaPlugin{
 			userDirectory.mkdir();
 		}
 		
+		File applic = new File("plugins/moneymine/applications.yml");
+		boolean applic_file_exists = applic.exists();
+		if(applic_file_exists == false){
+			FileSysManager.createFile(applic.toString());
+		}
+		
 		new LoginListener(this);
 	}
 	
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
+		
+		if(cmd.getName().equalsIgnoreCase("openapp")){
+			JobApManager.createApplication(sender, args[0], args[1], args[2]);
+			return true;
+		} else if (cmd.getName().equalsIgnoreCase("closeapp")){
+			JobApManager.closeApplication(args[0], sender);
+			return true;
+		}
+		
+		return false;
+	}
 	
 }
