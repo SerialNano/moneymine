@@ -1,5 +1,6 @@
 package com.icloud.jxthibeault.moneymine;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -26,14 +27,15 @@ public class FileSysManager {
 	}
 	
 	public static void appendFile(String filepath, String dataText){	//Class for appending to an existing file
-		FileWriter appender = null;
+		BufferedWriter appender = null;
 		try {
-			appender = new FileWriter(filepath, true);
+			appender = new BufferedWriter(new FileWriter(filepath, true));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		try {
 			appender.write(dataText);
+			appender.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
