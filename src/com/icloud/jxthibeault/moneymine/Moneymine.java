@@ -36,10 +36,20 @@ public final class Moneymine extends JavaPlugin{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		
 		if(cmd.getName().equalsIgnoreCase("openapp")){
-			JobApManager.createApplication(sender, args[0], args[1], args[2]);
+			if(args[0] == null){
+				sender.sendMessage("usage: /openapp [jobname] [pay]");
+			} else if (args[1] == null){
+				sender.sendMessage("usage: /openapp [jobname] [pay]");
+			} else {
+				JobApManager.createApplication(sender, args[0], args[1]);
+			}
 			return true;
 		} else if (cmd.getName().equalsIgnoreCase("closeapp")){
-			JobApManager.closeApplication(args[0], sender);
+			if(args[0] == null){
+				sender.sendMessage("usage: /closeapp [job]");
+			} else {
+				JobApManager.closeApplication(args[0], sender);
+			}
 			return true;
 		}
 		

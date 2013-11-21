@@ -5,13 +5,14 @@ import java.io.File;
 import org.bukkit.command.CommandSender;
 
 import com.icloud.jxthibeault.moneymine.FileSysManager;
+import com.icloud.jxthibeault.moneymine.ApSysManager;
 
 public class JobApManager {
-	public static void createApplication(CommandSender user, String job, String pay, String requirement){
+	public static void createApplication(CommandSender user, String job, String pay){
 		File applic = new File("plugins/moneymine/applications.yml");
-		boolean jobExists = FileSysManager.checkJobExists(job);
+		boolean jobExists = ApSysManager.checkJobExists(job);
 		if(jobExists == false){
-			FileSysManager.appendFile(applic.toString(), job + "|" + user.getName().toLowerCase().toString() + "|" + pay + "|" + requirement);
+			FileSysManager.appendFile(applic.toString(), job + "|" + user.getName().toString() + "|" + pay);
 			user.sendMessage("Now accepting applicants for job '" + job + "'");
 		} else {
 			user.sendMessage("Another job with the name of '" + job + "' already exists.");
@@ -19,16 +20,15 @@ public class JobApManager {
 	}
 	
 	public static void closeApplication(String job, CommandSender user){
-		File applic = new File("plugins/moneymine/applications.yml");
-		boolean jobExists = FileSysManager.checkJobExists(job);
+		boolean jobExists = ApSysManager.checkJobExists(job);
 		if(jobExists == false){
 			user.sendMessage("No job could be found by the name of '" + job + "'");
 		} else {
-			String jobOwner = FileSysManager.getJobOwner(job);
-			if(jobOwner != user.getName().toLowerCase().toString()){
-				user.sendMessage("You are not the manager of this job!");
+			String jobOwner = ApSysManager.getJobOwner(job);
+			if(jobOwner != user.getName().toString()){
+				user.sendMessage("Only " + jobOwner + " can close this application!");
 			} else {
-				//close the application
+				//Code to close the Application
 			}
 		}
 	}
