@@ -1,12 +1,3 @@
 name: Moneymine
 main: com.icloud.jxthibeault.moneymine.Moneymine
-version: alpha-1.0.7
-commands:
-  openapp:
-    description: Open job to applicants.
-    usage: /openapp [jobname] [payment]
-    permission: moneymine.openapp
-  closeapp:
-    description: Close a job to applications.
-    usage: /closeapp [job]
-    permission: moneymine.closeapp
+version: alpha-2.0.0

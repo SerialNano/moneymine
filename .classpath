@@ -7,5 +7,6 @@
 			<attribute name="javadoc_location" value="http://jd.bukkit.org/apidocs"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/jxthibeault/Development/api/sqlite-jdbc-3.7.15-M1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
