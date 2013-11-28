@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+
+import com.icloud.jxthibeault.moneymine.armorID;
 
 public class UniformManager{
 	
@@ -51,7 +54,7 @@ public class UniformManager{
 		} catch (Exception E){}
 	}
 	
-	@SuppressWarnings("null")
+	@SuppressWarnings({ "null", "deprecation" })
 	public static void giveUniform(Player p, String job){
 		PlayerInventory pi = p.getInventory();
 		
@@ -73,9 +76,17 @@ public class UniformManager{
 				shirt = rs.getString("shirt");
 				pants = rs.getString("pants");
 				shoes = rs.getString("shoes");
-				
+
 				if(jobRead == job){
-					//Give player armour--place directly into armour slots
+					ItemStack hatItem = new ItemStack(armorID.helmet(hat), 0);
+					ItemStack shirtItem = new ItemStack(armorID.chestplate(shirt), 0);
+					ItemStack pantsItem = new ItemStack(armorID.leggings(pants), 0);
+					ItemStack shoesItem = new ItemStack(armorID.boots(shoes), 0);
+					
+					pi.setHelmet(hatItem);
+					pi.setChestplate(shirtItem);
+					pi.setLeggings(pantsItem);
+					pi.setBoots(shoesItem);
 				}
 			}
 			rs.close();
