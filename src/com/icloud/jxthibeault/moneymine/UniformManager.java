@@ -51,10 +51,13 @@ public class UniformManager{
 			sql = "UPDATE uniforms set shoes = " + shoes + " where job=" + job +";";
 			stmt.executeUpdate(sql);
 			c.commit();
+			
+			c.close();
+			stmt.close();
 		} catch (Exception E){}
 	}
 	
-	@SuppressWarnings({ "null", "deprecation" })
+	@SuppressWarnings({ "deprecation" })
 	public static void giveUniform(Player p, String job){
 		PlayerInventory pi = p.getInventory();
 		
@@ -69,6 +72,10 @@ public class UniformManager{
 		Statement stmt = null;
 		
 		try{
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:plugins/moneymine/moneymine.db");
+			stmt = c.createStatement();
+			
 			ResultSet rs = stmt.executeQuery("SELECT * FROM uniforms;");
 			while ( rs.next() ){
 				jobRead = rs.getString("job");

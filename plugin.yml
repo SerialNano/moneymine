@@ -1,45 +1,15 @@
 name: Moneymine
 main: com.icloud.jxthibeault.moneymine.Moneymine
-version: alpha-2.0.0
+version: alpha-2.0.1
 
 commands:
-  forceuniform:
-    description: Forces a player to wear their uniform, in disregard their timetable.
-    usage: /forceuniform [player]
-    permission: moneymine.uniform.force
-    permission-message: You don't have access to that command.
   createjob:
     description: Command for creating a new job.
-    usage: /createjob [jobname]
+    usage: /createjob [jobname] [wage]
     permission: moneymine.job.create
     permission-message: You don't have access to that command.
   setuniform:
     description: Command for setting the uniform for a job.
-    usage: /setuniform [job] [helmet(leather|chain|iron|gold|diamond)] [chestplate] [leggings] [boots]
+    usage: /setuniform [job] [helmet  material] [chestplate material] [leggings material] [boots material]
     permission: moneymine.uniform.set
     permission-message: You don't have access to that command.
-    
-permissions:
-  moneymine.*:
-    description: Gives access to all Moneymine commands.
-    children:
-      moneymine.uniform.*: true
-      moneymine.job.*: true
-  moneymine.uniform.*:
-    description: Allows access to all uniform commands.
-    children:
-      moneymine.uniform.force: true
-      moneymine.uniform.set: true
-  moneymine.job.*:
-    description: Allows access to all job commands.
-    children:
-      moneymine.job.create
-  moneymine.uniform.force:
-    description: Allows a player to force any player to wear their uniform.
-    default: op
-  moneymine.uniform.set:
-    description: Allows a player to set the uniform for a job.
-    default: true
-  moneymine.job.create:
-    description: Allows a player to create a new job.
-    default: true
