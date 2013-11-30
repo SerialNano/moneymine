@@ -1,3 +1,5 @@
+//All Rights Reserved for Joshua Thibeault unless otherwise explicitly stated.
+
 package com.icloud.jxthibeault.moneymine;
 
 import java.io.File;
