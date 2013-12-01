@@ -34,6 +34,13 @@ public final class Moneymine extends JavaPlugin {
 			} catch (IOException e) {}
 			FirstTimeSetup.setup();
 		}
+		
+		try {
+		    Metrics metrics = new Metrics(this);
+		    metrics.start();
+		} catch (IOException e) {
+		    // Failed to submit the stats :-(
+		}
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
