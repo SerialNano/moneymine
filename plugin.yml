@@ -1,6 +1,6 @@
 name: Moneymine
 main: com.icloud.jxthibeault.moneymine.Moneymine
-version: alpha-2.0.1
+version: alpha-2.0.2
 
 commands:
   createjob:
