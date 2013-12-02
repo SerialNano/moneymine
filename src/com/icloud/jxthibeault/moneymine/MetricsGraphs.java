@@ -28,16 +28,76 @@
 
 package com.icloud.jxthibeault.moneymine;
 
-import java.io.File;
+import java.io.IOException;
 
-import com.icloud.jxthibeault.moneymine.UniformManager;
-import com.icloud.jxthibeault.moneymine.JobManager;
+import org.bukkit.plugin.Plugin;
 
-public class FirstTimeSetup{
-	public static void setup(){
-		File mmdb = new File("plugins/moneymine/moneymine.db");
-		mmdb.delete();
-		UniformManager.createTable();
-		JobManager.createTable();
+import com.icloud.jxthibeault.moneymine.Metrics.Graph;
+
+public class MetricsGraphs{
+	
+	public static void bugsGraph(Plugin plugin){
+		try {
+		    Metrics metrics = new Metrics(plugin);
+
+		    Graph issuesGraph = metrics.createGraph("Types of Issues Found");
+
+		    issuesGraph.addPlotter(new Metrics.Plotter("Bug") {
+
+		            @Override
+		            public int getValue() {
+		                    return 6; // Number of types of issue
+		            }
+
+		    });
+
+		    issuesGraph.addPlotter(new Metrics.Plotter("Enhancement") {
+
+		            @Override
+		            public int getValue() {
+		                    return 11;
+		            }
+
+		    });
+		    
+		    issuesGraph.addPlotter(new Metrics.Plotter("Invalid") {
+		    	
+		    		@Override
+		    		public int getValue() {
+	                    	return 2;
+		    		}
+		    	
+		    });
+		    
+		    issuesGraph.addPlotter(new Metrics.Plotter("Duplicate") {
+		    	
+	    		@Override
+	    		public int getValue() {
+                    	return 0;
+	    		}
+	    	
+		    });
+		    
+		    issuesGraph.addPlotter(new Metrics.Plotter("Question") {
+		    	
+	    		@Override
+	    		public int getValue() {
+                    	return 0;
+	    		}
+	    	
+		    });
+		    
+		    issuesGraph.addPlotter(new Metrics.Plotter("Wont Fix") {
+		    	
+	    		@Override
+	    		public int getValue() {
+                    	return 0;
+	    		}
+	    	
+		    });
+
+		    metrics.start();
+		} catch (IOException e){}
 	}
+	
 }
