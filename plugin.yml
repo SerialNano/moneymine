@@ -1,7 +1,8 @@
 name: Moneymine
-description: Jobs management plugin for Bukkit.
-main: com.icloud.jxthibeault.moneymine.Moneymine
 version: alpha2.0.3.4
+description: Jobs management plugin for Bukkit.
+author: joshuat3500
+main: com.icloud.jxthibeault.moneymine.Moneymine
 commands:
   createjob:
     description: Command for creating a new job.
