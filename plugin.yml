@@ -1,14 +1,5 @@
 name: Moneymine-Alpha
+main: com.icloud.jxthibeault.moneymine.Moneymine
 version: 2.0.3.4
 description: Jobs management plugin for Bukkit.
 author: joshuat3500
-main: com.icloud.jxthibeault.moneymine.Moneymine
-commands:
-  createjob:
-    description: Command for creating a new job.
-    usage: /createjob jobname wage
-    permission: moneymine.createjob
-  setuniform:
-    description: Command for setting the uniform for a job.
-    usage: /setuniform job helmetMaterial chestplateMaterial leggingsMaterial bootsMaterial
-    permission: moneymine.setuniform
