@@ -24,6 +24,8 @@
  * The views and conclusions contained in the software and documentation are those of the
  * authors and contributors and should not be interpreted as representing official policies,
  * either expressed or implied, of anybody else.
+ * 
+ * A thanks to Matthew Edwards for improving the syntax.
  */
 
 package com.icloud.jxthibeault.moneymine;
