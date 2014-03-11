@@ -30,6 +30,7 @@ package com.icloud.jxthibeault.moneymine;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class JobManager{
 	
@@ -44,7 +45,9 @@ public class JobManager{
 			stmt.executeUpdate(sql);
 			stmt.close();
 			c.close();
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			getLogger().info(e);
+		}
 	}
 	
 	public static void createNewJob(String job, String player, String wageAmount, String wageCurrency){
@@ -71,7 +74,9 @@ public class JobManager{
 			c.close();
 			
 			
-		} catch(Exception e){}
+		} catch(Exception e){
+			getLogger().info(e);
+		}
 	}
 	
 }
